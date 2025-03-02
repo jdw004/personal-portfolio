@@ -25,8 +25,8 @@ const PortfolioWebsite = () => {
     },
     {
       company: 'LPL Financial',
-      position: 'Frontend Developer',
-      period: 'March 2021 - July 2023',
+      position: 'Software Engineer Intern',
+      period: 'June 2024 - August 2024',
       details: [
         'Created responsive web applications using React and TypeScript',
         'Implemented complex data visualizations for business analytics dashboard',
@@ -35,8 +35,8 @@ const PortfolioWebsite = () => {
     },
     {
       company: 'Welch Sneaks',
-      position: 'Junior Developer',
-      period: 'June 2019 - February 2021',
+      position: 'Founder',
+      period: 'March 2021 - May 2023',
       details: [
         'Developed and maintained RESTful APIs using Node.js',
         'Built UI components using modern frontend frameworks',
@@ -48,13 +48,13 @@ const PortfolioWebsite = () => {
   // Define projects data
   const projects = [
     {
-      name: 'Peoples-Advisor',
+      name: 'Mars Meteo',
       description: 'A platform that allows for the development, testing, and deploying of algorithmic trading strategies.',
       details: 'Developers are able to create standalone signal and position algorithms, test arbitrary pairs of each on historical data, and deploy a given pair to run in a live environment.',
       tags: ['python', 'events', 'stats']
     },
     {
-      name: 'Chess-Bot',
+      name: 'Lyric Vibe',
       description: 'A chess bot that plays live and tries not to suck.',
       details: 'The bot plays in blitz chess against live players using a trained machine learning model and tracks its progress over time.',
       tags: ['python', 'machine-learning', 'game']
@@ -126,12 +126,10 @@ const PortfolioWebsite = () => {
   }, [currentExperience]);
 
   return (
-    
-    <div className="bg-gray-900 text-white min-h-screen text-3xl"
-      style={{ scrollBehavior: 'smooth' }}>
+    <div className="bg-gray-900 text-white min-h-screen text-3xl" style={{ scrollBehavior: 'smooth' }}>
       <header className="p-6 flex justify-between items-center fixed top-0 left-0 right-0 bg-gray-900 z-50">
         <a href="#home" className="text-cyan-400">
-          <div className="font-bold text-2xl font-mono">JW</div>
+          <div className="font-bold text-4xl font-mono">JW</div>
         </a>
         <nav>
           <ul className="flex space-x-6">
@@ -208,10 +206,10 @@ const PortfolioWebsite = () => {
       </header>
 
       {/* Side links with icons */}
-      <div className="fixed left-6 bottom-0 flex flex-col items-center z-40">
+      <div className="fixed left-6 bottom-0 flex flex-col items-center z-40 text-2xl">
         <div className="flex flex-col space-y-6 mb-8">
           <a 
-            href="https://github.com" 
+            href="https://github.com/jdw004" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="group"
@@ -220,10 +218,10 @@ const PortfolioWebsite = () => {
             onMouseEnter={(e) => e.currentTarget.style.color = 'rgb(34 211 238)'}
             onMouseLeave={(e) => e.currentTarget.style.color = 'rgb(156 163 175)'}
           >
-            <Github size={22} />
+            <Github size={42} />
           </a>
           <a 
-            href="https://linkedin.com" 
+            href="https://linkedin.com/johnd-welch" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="group"
@@ -232,27 +230,31 @@ const PortfolioWebsite = () => {
             onMouseEnter={(e) => e.currentTarget.style.color = 'rgb(34 211 238)'}
             onMouseLeave={(e) => e.currentTarget.style.color = 'rgb(156 163 175)'}
           >
-            <Linkedin size={22} />
+            <Linkedin size={42} />
           </a>
           <a 
-            href="mailto:hi@example.com" 
+            href="mailto:hi@jwelch04@outlook.com" 
             className="group"
             aria-label="Email"
             style={{ color: 'rgb(156 163 175)' }}
             onMouseEnter={(e) => e.currentTarget.style.color = 'rgb(34 211 238)'}
             onMouseLeave={(e) => e.currentTarget.style.color = 'rgb(156 163 175)'}
           >
-            <Mail size={22} />
+            <Mail size={42} />
           </a>
         </div>
         <div className="h-24 w-px bg-gray-700"></div>
       </div>
 
       {/* Right side links */}
-      <div className="fixed right-6 bottom-0 flex flex-col items-center z-40">
+      {/* text-2xl for bigger text on the right side */}
+      <div className="fixed right-6 bottom-0 flex flex-col items-center z-40 text-3xl">
         <div className="flex flex-col space-y-6 mb-8">
-          <a href="mailto:hi@example.com" className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 writing-mode-vertical-right">
-            hi@example.com
+          <a
+            href="mailto:hi@jwelch04@outlook.com"
+            className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 writing-mode-vertical-right"
+          >
+            jwelch04@outlook.com
           </a>
         </div>
         <div className="h-24 w-px bg-gray-700"></div>
@@ -262,13 +264,12 @@ const PortfolioWebsite = () => {
       <main className="max-w-5xl mx-auto px-6 pt-24">
         {/* Home Section */}
         <section id="home" className="h-screen flex flex-col items-center justify-center">
-        <div className="text-left font-mono text-white text-7xl mb-8">
+          <div className="text-left font-mono text-white text-7xl mb-8">
             <pre className="whitespace-pre-wrap">
-                {typingText}
-                {showCursor && <span className="text-cyan-400">_</span>}
+              {typingText}
+              {showCursor && <span className="text-cyan-400">_</span>}
             </pre>
-        </div>
-
+          </div>
         </section>
 
         {/* Experience Section */}
@@ -372,26 +373,22 @@ const PortfolioWebsite = () => {
           <h2 className="text-cyan-400 font-mono text-2xl mb-16">/hdng/Contact-Me</h2>
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-white font-mono mb-12">
-              I am not currently looking for new opportunities, but my inbox is always open. 
-              If you have a question or wish to collaborate on something please don't hesitate to reach out, 
+              I am currently looking for new opportunities, and my inbox is always open. 
+              Please don't hesitate to reach out with any questions or just to say hello.
               I'll get back to you as soon as I can!
             </p>
             <div className="flex justify-center gap-6">
-              <a href="mailto:hi@example.com" className="text-cyan-400 hover:text-white transition-colors duration-300 flex items-center">
+              <a href="mailto:hi@jwelch04@outlook.com" className="text-cyan-400 hover:text-white transition-colors duration-300 flex items-center">
                 <Mail size={18} className="mr-2" /> Email
-              </a>
-              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="text-cyan-400 hover:text-white transition-colors duration-300">
-                Discord
               </a>
             </div>
           </div>
-          <div className="mt-32 text-gray-400 text-sm font-mono">
-            Built with inspo from 
-            <a href="#" className="text-cyan-400 mx-1 hover:text-white transition-colors duration-300">Brittany Chiang</a> &
-            <a href="#" className="text-cyan-400 mx-1 hover:text-white transition-colors duration-300">AoC</a> &
-            <a href="#" className="text-cyan-400 mx-1 hover:text-white transition-colors duration-300">Patorjk</a>
+          <div className="mt-32 text-gray-400 text-xl font-mono">
+            Built with inspo from  
+            <a href="https://github.com/wumphlett/willhumphlett" className="text-cyan-400 mx-1 hover:text-white transiti on-colors duration-300"> Will Humphlett</a> &
+            <a href="https://github.com/jmurrah/personal-portfolio" className="text-cyan-400 mx-1 hover:text-white transition-colors duration-300"> Jacob Murrah</a>
             <div className="mt-2 text-center">
-              Source on <a href="#" className="text-cyan-400 hover:text-white transition-colors duration-300">GitHub</a>
+              Source on <a href="https://github.com/jdw004/personal-portfolio" className="text-cyan-400 hover:text-white transition-colors duration-300">GitHub</a>
             </div>
           </div>
         </section>
