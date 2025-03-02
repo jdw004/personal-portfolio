@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Terminal, Github, Linkedin, Mail } from 'lucide-react';
-import '../index.css';
-
 
 const PortfolioWebsite = () => {
   const [typingText, setTypingText] = useState('');
@@ -16,9 +14,9 @@ const PortfolioWebsite = () => {
   // Define experiences data
   const experiences = [
     {
-      company: 'TechCorp',
-      position: 'Software Engineer',
-      period: 'August 2023 - Present',
+      company: 'OCV, LLC',
+      position: 'Software Engineer Intern',
+      period: 'January 3rd - Present',
       details: [
         'Built an analytics platform to calculate and serve classical core datasets (engagement, retention, acquisition, monetization)',
         'Developed an event ingestion pipeline (10GB/s) to enable analysis for internal business intelligence',
@@ -260,7 +258,7 @@ const PortfolioWebsite = () => {
       </div>
 
       {/* Main content */}
-      <main className="container mx-auto px-4 pt-24">
+      <main className="max-w-5xl mx-auto px-6 pt-24">
         {/* Home Section */}
         <section id="home" className="min-h-screen flex flex-col items-center justify-center">
           <div className="text-left font-mono text-white mb-8">
