@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import { Github, Linkedin, Mail } from 'lucide-react';
 
 const PortfolioWebsite = () => {
@@ -16,7 +16,7 @@ const PortfolioWebsite = () => {
     {
       company: 'OCV, LLC',
       position: 'Software Engineer Intern',
-      period: 'January 3rd - Present',
+      period: 'January 2025 - Present',
       details: [
         'Built an analytics platform to calculate and serve classical core datasets (engagement, retention, acquisition, monetization)',
         'Developed an event ingestion pipeline (10GB/s) to enable analysis for internal business intelligence',
@@ -108,6 +108,25 @@ const PortfolioWebsite = () => {
     }, 500);
     return () => clearInterval(interval);
   }, []);
+
+   // This runs right after the DOM is updated, before paint.
+   useLayoutEffect(() => {
+    // Trim the refs array to match experiences
+    experienceMenuRefs.current = experienceMenuRefs.current.slice(0, experiences.length);
+
+    // If the first item is valid, set the initial position
+    if (experienceMenuRefs.current[0] && experienceMenuRefs.current[0].offsetTop) {
+      setIndicatorPosition(experienceMenuRefs.current[0].offsetTop);
+    }
+  }, [experiences.length]);
+
+  // Update indicator position when currentExperience changes
+  useLayoutEffect(() => {
+    const currentRef = experienceMenuRefs.current[currentExperience];
+    if (currentRef && currentRef.offsetTop) {
+      setIndicatorPosition(currentRef.offsetTop);
+    }
+  }, [currentExperience]);
   
   // Initialize experience menu refs
   useEffect(() => {
@@ -221,7 +240,7 @@ const PortfolioWebsite = () => {
             <Github size={42} />
           </a>
           <a 
-            href="https://linkedin.com/johnd-welch" 
+            href="https://www.linkedin.com/in/johnd-welch/" 
             target="_blank" 
             rel="noopener noreferrer" 
             className="group"
@@ -360,7 +379,7 @@ const PortfolioWebsite = () => {
                     ))}
                   </div>
                   <div className="mt-4">
-                    <a href="#" className="text-cyan-400 hover:text-white transition-colors duration-300">GitHub</a>
+                    <a href="#" className="text-cyan-400 hover:text-white transition-colors duration-300"> Github</a>
                   </div>
                 </div>
               </div>
@@ -369,7 +388,7 @@ const PortfolioWebsite = () => {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="min-h-screen py-24 flex flex-col items-center">
+        <section id="contact" className="py-24 flex flex-col items-center">
           <h2 className="text-cyan-400 font-mono text-2xl mb-16">/hdng/Contact-Me</h2>
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-white font-mono mb-12">
