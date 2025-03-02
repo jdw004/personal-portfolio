@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Terminal, Github, Linkedin, Mail } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 const PortfolioWebsite = () => {
   const [typingText, setTypingText] = useState('');
@@ -9,7 +9,7 @@ const PortfolioWebsite = () => {
   const [indicatorPosition, setIndicatorPosition] = useState(0);
   const experienceMenuRefs = useRef([]);
 
-  const fullText = "Hello hello, I'm\nJane Doe\nI write code.";
+  const fullText = "Hey there, I'm\nJohn Welch\nI write code.";
   
   // Define experiences data
   const experiences = [
@@ -24,7 +24,7 @@ const PortfolioWebsite = () => {
       ]
     },
     {
-      company: 'DataTech',
+      company: 'LPL Financial',
       position: 'Frontend Developer',
       period: 'March 2021 - July 2023',
       details: [
@@ -34,7 +34,7 @@ const PortfolioWebsite = () => {
       ]
     },
     {
-      company: 'StartupX',
+      company: 'Welch Sneaks',
       position: 'Junior Developer',
       period: 'June 2019 - February 2021',
       details: [
@@ -126,8 +126,9 @@ const PortfolioWebsite = () => {
   }, [currentExperience]);
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen">
-      {/* Fixed Navigation */}
+    
+    <div className="bg-gray-900 text-white min-h-screen text-3xl"
+      style={{ scrollBehavior: 'smooth' }}>
       <header className="p-6 flex justify-between items-center fixed top-0 left-0 right-0 bg-gray-900 z-50">
         <a href="#home" className="text-cyan-400">
           <div className="font-bold text-2xl font-mono">JW</div>
@@ -260,20 +261,21 @@ const PortfolioWebsite = () => {
       {/* Main content */}
       <main className="max-w-5xl mx-auto px-6 pt-24">
         {/* Home Section */}
-        <section id="home" className="min-h-screen flex flex-col items-center justify-center">
-          <div className="text-left font-mono text-white mb-8">
+        <section id="home" className="h-screen flex flex-col items-center justify-center">
+        <div className="text-left font-mono text-white text-7xl mb-8">
             <pre className="whitespace-pre-wrap">
-              {typingText}
-              {showCursor && <span className="text-cyan-400">_</span>}
+                {typingText}
+                {showCursor && <span className="text-cyan-400">_</span>}
             </pre>
-          </div>
+        </div>
+
         </section>
 
         {/* Experience Section */}
         <section id="experience" className="min-h-screen py-24">
           <h2 className="text-cyan-400 font-mono text-2xl mb-16">/hdng/Experience</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-8 gap-6 mx-auto max-w-5xl">
             {/* Experience Menu (Left Side) */}
             <div className="md:col-span-3 relative">
               <div className="font-mono sticky top-24">
