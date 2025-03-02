@@ -233,7 +233,7 @@ const PortfolioWebsite = () => {
             <Linkedin size={42} />
           </a>
           <a 
-            href="mailto:hi@jwelch04@outlook.com" 
+            href="mailto:jwelch04@outlook.com" 
             className="group"
             aria-label="Email"
             style={{ color: 'rgb(156 163 175)' }}
@@ -251,7 +251,7 @@ const PortfolioWebsite = () => {
       <div className="fixed right-6 bottom-0 flex flex-col items-center z-40 text-3xl">
         <div className="flex flex-col space-y-6 mb-8">
           <a
-            href="mailto:hi@jwelch04@outlook.com"
+            href="mailto:jwelch04@outlook.com"
             className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 writing-mode-vertical-right"
           >
             jwelch04@outlook.com
@@ -378,7 +378,7 @@ const PortfolioWebsite = () => {
               I'll get back to you as soon as I can!
             </p>
             <div className="flex justify-center gap-6">
-              <a href="mailto:hi@jwelch04@outlook.com" className="text-cyan-400 hover:text-white transition-colors duration-300 flex items-center">
+              <a href="mailto:jwelch04@outlook.com" className="text-cyan-400 hover:text-white transition-colors duration-300 flex items-center">
                 <Mail size={18} className="mr-2" /> Email
               </a>
             </div>
