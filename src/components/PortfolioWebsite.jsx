@@ -11,55 +11,54 @@ const PortfolioWebsite = () => {
 
   const fullText = "Hey there, I'm\nJohn Welch\nI write code.";
   
-  // Define experiences data
-  const experiences = [
-    {
-      company: 'OCV, LLC',
-      position: 'Software Engineer Intern',
-      period: 'January 2025 - Present',
-      details: [
-        'Built an analytics platform to calculate and serve classical core datasets (engagement, retention, acquisition, monetization)',
-        'Developed an event ingestion pipeline (10GB/s) to enable analysis for internal business intelligence',
-        'Designed and implemented an Analytics SDK to empower creators to measure and analyze user interactions'
-      ]
-    },
-    {
-      company: 'LPL Financial',
-      position: 'Software Engineer Intern',
-      period: 'June 2024 - August 2024',
-      details: [
-        'Created responsive web applications using React and TypeScript',
-        'Implemented complex data visualizations for business analytics dashboard',
-        'Led a team of 3 developers to redesign the company\'s main product interface'
-      ]
-    },
-    {
-      company: 'Welch Sneaks',
-      position: 'Founder',
-      period: 'March 2021 - May 2023',
-      details: [
-        'Developed and maintained RESTful APIs using Node.js',
-        'Built UI components using modern frontend frameworks',
-        'Participated in agile development processes and sprint planning'
-      ]
-    }
-  ];
+  // Updated experiences data
+const experiences = [
+  {
+    company: 'OCV, LLC',
+    position: 'Software Engineer Intern',
+    period: 'January 2025 - Present',
+    details: [
+      'Engineered user-friendly applications using SwiftUI, focusing on seamless UI/UX and efficient code architecture',
+      'Executed comprehensive testing using Xcode and Android Studio, ensuring high performance and compatibility across iOS and Android ecosystems'
+    ]
+  },
+  {
+    company: 'LPL Financial',
+    position: 'Software Engineer Intern',
+    period: 'June 2024 - August 2024',
+    details: [
+      'Developed AWS application deployment manager using Angular & Terraform, decreasing deployment time by 50%',
+      'Reduced application downtime by 30% by creating a load balancer utilizing blue-green deployment, easing release of updates to over 22,000 financial advisors',
+      'Automated push notifications for pending annual reviews using the Jira API, reducing meeting time by 14 hours for employees across technology governance in 2024'
+    ]
+  },
+  {
+    company: 'Welch Sneaks',
+    position: 'Founder',
+    period: 'August 2021 - May 2023',
+    details: [
+      'Successfully generated $40,000 in revenue through retail arbitrage tactics as sole proprietor',
+      'Developed an e-commerce platform utilizing React and Node.js to effectively display product, process orders, and handle customer relationships',
+      'Implemented an inventory management system to effectively manage daily orders by implementing API routes to query from MongoDB database and display it back to clients'
+    ]
+  }
+];
 
-  // Define projects data
-  const projects = [
-    {
-      name: 'Mars Meteo',
-      description: 'A platform that allows for the development, testing, and deploying of algorithmic trading strategies.',
-      details: 'Developers are able to create standalone signal and position algorithms, test arbitrary pairs of each on historical data, and deploy a given pair to run in a live environment.',
-      tags: ['python', 'events', 'stats']
-    },
-    {
-      name: 'Lyric Vibe',
-      description: 'A chess bot that plays live and tries not to suck.',
-      details: 'The bot plays in blitz chess against live players using a trained machine learning model and tracks its progress over time.',
-      tags: ['python', 'machine-learning', 'game']
-    }
-  ];
+// Updated projects data
+const projects = [
+  {
+    name: 'Mars Meteo',
+    description: 'A Mars weather web application with a comprehensive weather-tracking dashboard.',
+    details: 'Led a team to develop this application, designed and built a web scraper using JavaScript for active updates of NASA Rover data, and crafted a user-friendly UI using React and HTML/CSS to improve user experience.',
+    tags: ['React', 'Node.js', 'JavaScript']
+  },
+  {
+    name: 'Lyric Vibe',
+    description: 'A project sentiment analysis project, fetching a user\'s spotify data and quantifying user music tastes on a numerical happy-to-sad scale.',
+    details: 'Utilized LLM sentiment analysis to review song lyrics from user accounts, determining their music taste as happy or sad on a numerical scale',
+    tags: ['Python', 'NLTK', 'Taipy', 'Spotify API']
+  }
+];
   
   // Handle scroll and update active section
   useEffect(() => {
@@ -299,7 +298,7 @@ const PortfolioWebsite = () => {
 
         {/* Experience Section */}
         <section id="experience" className="min-h-screen py-24">
-          <h2 className="text-cyan-400 font-mono text-2xl mb-16">/hdng/Experience</h2>
+          <h2 className="text-cyan-400 font-mono text-2xl mb-16">Work Experience</h2>
           
           <div className="grid grid-cols-12 gap-6 mx-auto max-w-5xl">
             {/* Experience Menu (Left Side) */}
@@ -324,7 +323,7 @@ const PortfolioWebsite = () => {
                     }`}
                     onClick={() => setCurrentExperience(index)}
                   >
-                    /job/{exp.company}
+                    {exp.company}
                   </div>
                 ))}
               </div>
@@ -340,7 +339,7 @@ const PortfolioWebsite = () => {
                   }`}
                 >
                   <div className="mb-6">
-                    <h3 className="text-white text-xl font-mono">
+                    <h3 className="text-white text-3xl font-mono">
                       {exp.position} @ 
                       <span className="text-cyan-400"> {exp.company}</span>
                     </h3>
@@ -361,26 +360,28 @@ const PortfolioWebsite = () => {
           </div>
         </section>
 
-        {/* Projects Section */}
+        {/* Projects Section with fixed image container */}
         <section id="projects" className="min-h-screen py-24">
-          <h2 className="text-cyan-400 font-mono text-2xl mb-16">/hdng/Projects</h2>
+          <h2 className="text-cyan-400 font-mono text-2xl mb-16">Projects</h2>
           {projects.map((project, index) => (
             <div key={index} className="mb-20">
               <h3 className="text-cyan-400 font-mono text-xl mb-6">
-                /proj/<span className="text-white">{project.name}</span>
+                <span className="text-white">{project.name}</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="font-mono text-right md:text-left border border-gray-700 bg-gray-800 p-4 rounded-lg shadow-lg">
-                  {/* Project image - replace with your project images */}
-                  <img 
-                    src={`/images/${project.name.toLowerCase().replace(' ', '-')}.png`} 
-                    alt={`${project.name} interface`}
-                    className="w-full h-40 object-cover rounded"
-                    onError={(e) => {
-                      e.target.onerror = null;
-                      e.target.src = '/images/placeholder-project.png'; // Fallback image
-                    }}
-                  />
+                <div className="font-mono text-right md:text-left border border-gray-700 bg-gray-800 p-4 rounded-lg shadow-lg flex items-center justify-center">
+                  {/* Improved image container with better sizing constraints */}
+                  <div className="w-full h-48 overflow-hidden rounded">
+                    <img 
+                      src={`/images/${project.name.toLowerCase().replace(' ', '-')}.png`} 
+                      alt={`${project.name} interface`}
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        e.target.onerror = null;
+                        e.target.src = '/images/placeholder-project.png'; // Fallback image
+                      }}
+                    />
+                  </div>
                 </div>
                 <div className="font-mono text-right">
                   <p className="text-white mb-6">{project.description}</p>
@@ -401,7 +402,7 @@ const PortfolioWebsite = () => {
 
         {/* Contact Section */}
         <section id="contact" className="py-24 flex flex-col items-center">
-          <h2 className="text-cyan-400 font-mono text-2xl mb-16">/hdng/Contact-Me</h2>
+          <h2 className="text-cyan-400 font-mono text-2xl mb-16">Contact-Me</h2>
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-white font-mono mb-12">
               I am currently looking for new opportunities, and my inbox is always open 
