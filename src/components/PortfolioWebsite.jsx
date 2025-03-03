@@ -109,40 +109,46 @@ const PortfolioWebsite = () => {
     return () => clearInterval(interval);
   }, []);
 
-   // This runs right after the DOM is updated, before paint.
-   useLayoutEffect(() => {
-    // Trim the refs array to match experiences
+  // This runs right after the DOM is updated, before paint.
+  useLayoutEffect(() => {
+    // Reset refs to match current experiences
     experienceMenuRefs.current = experienceMenuRefs.current.slice(0, experiences.length);
-
-    // If the first item is valid, set the initial position
-    if (experienceMenuRefs.current[0] && experienceMenuRefs.current[0].offsetTop) {
-      setIndicatorPosition(experienceMenuRefs.current[0].offsetTop);
-    }
+    
+    // Force a small delay to ensure DOM elements are properly rendered
+    const timer = setTimeout(() => {
+      const currentRef = experienceMenuRefs.current[currentExperience];
+      if (currentRef && currentRef.offsetTop !== undefined) {
+        setIndicatorPosition(currentRef.offsetTop);
+      }
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, [experiences.length]);
 
   // Update indicator position when currentExperience changes
-  useLayoutEffect(() => {
-    const currentRef = experienceMenuRefs.current[currentExperience];
-    if (currentRef && currentRef.offsetTop) {
-      setIndicatorPosition(currentRef.offsetTop);
-    }
-  }, [currentExperience]);
-  
-  // Initialize experience menu refs
   useEffect(() => {
-    experienceMenuRefs.current = experienceMenuRefs.current.slice(0, experiences.length);
-    // Set initial indicator position
-    if (experienceMenuRefs.current[0] && experienceMenuRefs.current[0].offsetTop) {
-      setIndicatorPosition(experienceMenuRefs.current[0].offsetTop);
-    }
-  }, [experiences.length]);
-  
-  // Update indicator position when changing experience
-  useEffect(() => {
-    if (experienceMenuRefs.current[currentExperience] && experienceMenuRefs.current[currentExperience].offsetTop) {
-      setIndicatorPosition(experienceMenuRefs.current[currentExperience].offsetTop);
-    }
+    // Force a small delay to ensure DOM elements are properly rendered
+    const timer = setTimeout(() => {
+      const currentRef = experienceMenuRefs.current[currentExperience];
+      if (currentRef && currentRef.offsetTop !== undefined) {
+        setIndicatorPosition(currentRef.offsetTop);
+      }
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, [currentExperience]);
+
+  // Additional component mount effect to ensure indicator is properly set
+  useEffect(() => {
+    // Force initial indicator update after component fully mounts
+    const timer = setTimeout(() => {
+      if (experienceMenuRefs.current[0] && experienceMenuRefs.current[0].offsetTop !== undefined) {
+        setIndicatorPosition(experienceMenuRefs.current[0].offsetTop);
+      }
+    }, 500);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <div className="bg-gray-900 text-white min-h-screen text-3xl" style={{ scrollBehavior: 'smooth' }}>
@@ -296,7 +302,7 @@ const PortfolioWebsite = () => {
           <h2 className="text-cyan-400 font-mono text-2xl mb-16">/hdng/Experience</h2>
           
           <div className="grid grid-cols-12 gap-6 mx-auto max-w-5xl">
-            {/* Experience Menu (Left Side) - Fixed width */}
+            {/* Experience Menu (Left Side) */}
             <div className="col-span-3 relative">
               <div className="font-mono sticky top-24">
                 {/* Moving indicator */}
@@ -410,7 +416,7 @@ const PortfolioWebsite = () => {
           </div>
           <div className="mt-32 text-gray-400 text-xl font-mono">
             Built with inspo from  
-            <a href="https://github.com/wumphlett/willhumphlett" className="text-cyan-400 mx-1 hover:text-white transiti on-colors duration-300"> Will Humphlett</a> &
+            <a href="https://github.com/wumphlett/willhumphlett" className="text-cyan-400 mx-1 hover:text-white transition-colors duration-300"> Will Humphlett</a> &
             <a href="https://github.com/jmurrah/personal-portfolio" className="text-cyan-400 mx-1 hover:text-white transition-colors duration-300"> Jacob Murrah</a>
             <div className="mt-2 text-center">
               Source on <a href="https://github.com/jdw004/personal-portfolio" className="text-cyan-400 hover:text-white transition-colors duration-300">GitHub</a>
