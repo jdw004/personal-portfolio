@@ -295,9 +295,9 @@ const PortfolioWebsite = () => {
         <section id="experience" className="min-h-screen py-24">
           <h2 className="text-cyan-400 font-mono text-2xl mb-16">/hdng/Experience</h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-8 gap-6 mx-auto max-w-5xl">
-            {/* Experience Menu (Left Side) */}
-            <div className="md:col-span-3 relative">
+          <div className="grid grid-cols-12 gap-6 mx-auto max-w-5xl">
+            {/* Experience Menu (Left Side) - Fixed width */}
+            <div className="col-span-3 relative">
               <div className="font-mono sticky top-24">
                 {/* Moving indicator */}
                 <div 
@@ -325,7 +325,7 @@ const PortfolioWebsite = () => {
             </div>
             
             {/* Experience Content (Right Side) */}
-            <div className="md:col-span-9">
+            <div className="col-span-9">
               {experiences.map((exp, index) => (
                 <div 
                   key={index} 
@@ -335,7 +335,7 @@ const PortfolioWebsite = () => {
                 >
                   <div className="mb-6">
                     <h3 className="text-white text-xl font-mono">
-                      Software Engineer @ 
+                      {exp.position} @ 
                       <span className="text-cyan-400"> {exp.company}</span>
                     </h3>
                     <p className="text-gray-300 font-mono">{exp.period}</p>
@@ -365,10 +365,16 @@ const PortfolioWebsite = () => {
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="font-mono text-right md:text-left border border-gray-700 bg-gray-800 p-4 rounded-lg shadow-lg">
-                  {/* Placeholder for project image/visualization */}
-                  <div className="h-40 flex items-center justify-center border border-dashed border-gray-600 rounded">
-                    <span className="text-gray-400">{project.name} Interface</span>
-                  </div>
+                  {/* Project image - replace with your project images */}
+                  <img 
+                    src={`/images/${project.name.toLowerCase().replace(' ', '-')}.png`} 
+                    alt={`${project.name} interface`}
+                    className="w-full h-40 object-cover rounded"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = '/images/placeholder-project.png'; // Fallback image
+                    }}
+                  />
                 </div>
                 <div className="font-mono text-right">
                   <p className="text-white mb-6">{project.description}</p>
@@ -379,7 +385,7 @@ const PortfolioWebsite = () => {
                     ))}
                   </div>
                   <div className="mt-4">
-                    <a href="#" className="text-cyan-400 hover:text-white transition-colors duration-300"> Github</a>
+                    <a href="#" className="text-cyan-400 hover:text-white transition-colors duration-300">Github</a>
                   </div>
                 </div>
               </div>
@@ -392,7 +398,7 @@ const PortfolioWebsite = () => {
           <h2 className="text-cyan-400 font-mono text-2xl mb-16">/hdng/Contact-Me</h2>
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-white font-mono mb-12">
-              I am currently looking for new opportunities, and my inbox is always open. 
+              I am currently looking for new opportunities, and my inbox is always open 
               Please don't hesitate to reach out with any questions or just to say hello.
               I'll get back to you as soon as I can!
             </p>
