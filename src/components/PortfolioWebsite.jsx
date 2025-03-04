@@ -23,6 +23,15 @@ const experiences = [
     ]
   },
   {
+    company: 'Auburn Human-Centered AI Lab',
+    position: 'Undergraduate Research Assistant',
+    period: 'August 2024 - December 2024',
+    details: [
+      'Researched jailbreak methods for large language models to understand how standard restrictions are bypassed',
+      'Analyzed safety protocols and the ethical implications of security lapses within models'
+    ]
+  },
+  {
     company: 'LPL Financial',
     position: 'Software Engineer Intern',
     period: 'June 2024 - August 2024',
@@ -366,7 +375,7 @@ const projects = [
           {projects.map((project, index) => (
             <div key={index} className="mb-20">
               <h3 className="text-cyan-400 font-mono text-xl mb-6">
-                <span className="text-white">{project.name}</span>
+                <span className="text-white text-3xl">{project.name}</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* UPDATED: Image container with better sizing and object-fit properties */}
