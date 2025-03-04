@@ -48,14 +48,14 @@ const experiences = [
 const projects = [
   {
     name: 'Mars Meteo',
-    description: 'A Mars weather web application with a comprehensive weather-tracking dashboard.',
-    details: 'Led a team to develop this application, designed and built a web scraper using JavaScript for active updates of NASA Rover data, and crafted a user-friendly UI using React and HTML/CSS to improve user experience.',
+    description: 'A Mars weather web application with a comprehensive weather tracking dashboard.',
+    details: 'Led a team to develop this application, designed and built a web scraper using JavaScript for active updates of NASA Rover data, and crafted a user-friendly UI using React.',
     tags: ['React', 'Node.js', 'JavaScript']
   },
   {
     name: 'Lyric Vibe',
     description: 'A project sentiment analysis project, fetching a user\'s spotify data and quantifying user music tastes on a numerical happy-to-sad scale.',
-    details: 'Utilized LLM sentiment analysis to review song lyrics from user accounts, determining their music taste as happy or sad on a numerical scale',
+    details: 'Utilized NLTK LLM sentiment analysis to review song lyrics from user accounts, allowing us to recommend songs based on mood.',
     tags: ['Python', 'NLTK', 'Taipy', 'Spotify API']
   }
 ];
@@ -297,8 +297,8 @@ const projects = [
         </section>
 
         {/* Experience Section */}
-        <section id="experience" className="min-h-screen py-24">
-          <h2 className="text-cyan-400 font-mono text-2xl mb-16">Work Experience</h2>
+        <section id="experience" className="min-h-screen text-2xl py-24">
+          <h2 className="text-cyan-400 font-mono text-4xl mb-16">Work Experience</h2>
           
           <div className="grid grid-cols-12 gap-6 mx-auto max-w-5xl">
             {/* Experience Menu (Left Side) */}
@@ -362,20 +362,20 @@ const projects = [
 
         {/* Projects Section with fixed image container */}
         <section id="projects" className="min-h-screen py-24">
-          <h2 className="text-cyan-400 font-mono text-2xl mb-16">Projects</h2>
+          <h2 className="text-cyan-400 font-mono text-4xl mb-16">Projects</h2>
           {projects.map((project, index) => (
             <div key={index} className="mb-20">
               <h3 className="text-cyan-400 font-mono text-xl mb-6">
                 <span className="text-white">{project.name}</span>
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="font-mono text-right md:text-left border border-gray-700 bg-gray-800 p-4 rounded-lg shadow-lg flex items-center justify-center">
-                  {/* Improved image container with better sizing constraints */}
-                  <div className="w-full h-48 overflow-hidden rounded">
+                {/* UPDATED: Image container with better sizing and object-fit properties */}
+                <div className="font-mono text-right md:text-left border border-gray-700 bg-gray-800 p-4 rounded-lg shadow-lg">
+                  <div className="w-full h-64 flex items-center justify-center">
                     <img 
                       src={`/images/${project.name.toLowerCase().replace(' ', '-')}.png`} 
                       alt={`${project.name} interface`}
-                      className="w-full h-full object-contain"
+                      className="max-w-full max-h-full object-contain" 
                       onError={(e) => {
                         e.target.onerror = null;
                         e.target.src = '/images/placeholder-project.png'; // Fallback image
@@ -385,14 +385,23 @@ const projects = [
                 </div>
                 <div className="font-mono text-right">
                   <p className="text-white mb-6">{project.description}</p>
-                  <p className="text-gray-300 text-sm mb-8">{project.details}</p>
+                  <p className="text-gray-300 text-xl mb-8">{project.details}</p>
                   <div className="flex flex-wrap justify-end gap-4">
                     {project.tags.map((tag, idx) => (
                       <span key={idx} className="text-cyan-400">/tag/{tag}</span>
                     ))}
                   </div>
+                  {/* MOVED: GitHub icon to the right side */}
                   <div className="mt-4">
-                    <a href="#" className="text-cyan-400 hover:text-white transition-colors duration-300">Github</a>
+                    <a 
+                      href={`https://github.com/jdw004/${project.name.toLowerCase().replace(' ', '-')}`} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-block text-cyan-400 hover:text-white transition-colors duration-300"
+                      aria-label={`View ${project.name} code on GitHub`}
+                    >
+                      <Github size={42} />
+                    </a>
                   </div>
                 </div>
               </div>
@@ -402,12 +411,12 @@ const projects = [
 
         {/* Contact Section */}
         <section id="contact" className="py-24 flex flex-col items-center">
-          <h2 className="text-cyan-400 font-mono text-2xl mb-16">Contact-Me</h2>
+          <h2 className="text-cyan-400 font-mono text-4xl mb-16">Contact-Me</h2>
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-white font-mono mb-12">
-              I am currently looking for new opportunities, and my inbox is always open 
-              Please don't hesitate to reach out with any questions or just to say hello.
-              I'll get back to you as soon as I can!
+            I'm exploring new opportunities, so my inbox is always open. 
+            Feel free to reach out with any questions or just to say hello.
+            I promise to get back to you as soon as I can!
             </p>
             <div className="flex justify-center gap-6">
               <a href="mailto:jwelch04@outlook.com" className="text-cyan-400 hover:text-white transition-colors duration-300 flex items-center">
