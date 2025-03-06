@@ -28,7 +28,7 @@ const experiences = [
     period: 'August 2024 - December 2024',
     details: [
       'Researched jailbreak methods for large language models to understand how standard restrictions are bypassed',
-      'Analyzed safety protocols and the ethical implications of security lapses within models'
+      'Examined safety procedures and the ethical consequences of security breaches in models'
     ]
   },
   {
@@ -65,16 +65,26 @@ const projects = [
     name: 'Lyric Vibe',
     description: 'A project sentiment analysis project, fetching a user\'s spotify data and quantifying user music tastes on a numerical happy-to-sad scale.',
     details: 'Utilized NLTK LLM sentiment analysis to review song lyrics from user accounts, allowing us to recommend songs based on mood.',
-    tags: ['Python', 'NLTK', 'Taipy', 'Spotify API']
+    tags: ['Python', 'NLTK', 'pandas', 'Spotify API']
   }
 ];
+
+  // Technologies based on experience and projects
+  const technologies = [
+    'React', 
+    'SwiftUI', 
+    'JavaScript', 
+    'Python',
+    'AWS', 
+    'MongoDB'
+  ];
   
   // Handle scroll and update active section
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY;
       
-      const sections = ['home', 'experience', 'projects', 'contact'];
+      const sections = ['home', 'about', 'experience', 'projects', 'contact'];
       
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -178,6 +188,23 @@ const projects = [
                 }}
                 onMouseLeave={(e) => {
                   if (activeSection !== 'home') e.currentTarget.style.color = 'rgb(209 213 219)';
+                }}
+              >
+                Home
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#about" 
+                style={{ 
+                  color: activeSection === 'about' ? 'rgb(34 211 238)' : 'rgb(209 213 219)',
+                  transition: 'color 0.3s'
+                }}
+                onMouseEnter={(e) => {
+                  if (activeSection !== 'about') e.currentTarget.style.color = 'rgb(34 211 238)';
+                }}
+                onMouseLeave={(e) => {
+                  if (activeSection !== 'about') e.currentTarget.style.color = 'rgb(209 213 219)';
                 }}
               >
                 About Me
@@ -305,8 +332,62 @@ const projects = [
           </div>
         </section>
 
+        {/* About Me Section - NEW SECTION */}
+        <section id="about" className="py-24">
+          <h2 className="text-cyan-400 font-mono text-4xl mb-16">About Me</h2>
+          
+          <div className="grid grid-cols-12 gap-8">
+            {/* Left side - Text */}
+            <div className="col-span-7">
+              <div className="font-mono text-xl leading-relaxed text-white">
+                <p className="mb-6">
+                  Hey, my name is John and I'm a software engineering student at Auburn University. Lately I've been working to leverage <span className="text-cyan-400">mobile development</span> to create <span className="text-cyan-400">engaging iOS/Android applications</span>.
+                </p>
+                <p className="mb-6">
+                  To date, I've had the privilege of working as an intern at <span className="text-cyan-400">OCV</span>, conducting <span className="text-cyan-400">undergraduate research</span> at Auburn's Human-Centered AI Lab, <span className="text-cyan-400">interning at LPL Financial</span>, and founding my own e-commerce business.
+                </p>
+                <p className="mb-8">
+                  I have a passion for continually expanding my skill-set, so if you have a project you'd like to collaborate on, please don't hesitate to reach out!
+                </p>
+                
+                <p className="text-xl text-gray-300 mb-4">
+                  Here are a few technologies I've been working with recently:
+                </p>
+                
+                <div className="grid grid-cols-2 gap-2">
+                  {technologies.map((tech, index) => (
+                    <div key={index} className="flex items-center mb-3">
+                      <span className="text-cyan-400 mr-2">{'>'}</span>
+                      <span>{tech}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+            
+            {/* Right side - Image */}
+            <div className="col-span-5 flex justify-center items-center">
+              <div className="relative w-64 h-64 border-2 border-cyan-400 rounded-md">
+                <div className="absolute -top-4 -left-4 w-64 h-64 bg-cyan-400 bg-opacity-20 rounded-md transition-all duration-300 hover:translate-x-2 hover:translate-y-2">
+                  <img
+                    src="/images/profile.jpg"
+                    alt="John Welch"
+                    className="w-full h-full object-cover rounded-md grayscale hover:grayscale-0 transition-all duration-500"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      // Display a placeholder if image fails to load
+                      e.target.style.display = 'none';
+                      e.target.parentNode.innerHTML += '<div class="w-full h-full flex items-center justify-center text-cyan-400">JW</div>';
+                    }}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Experience Section */}
-        <section id="experience" className="min-h-screen text-2xl py-24">
+        <section id="experience" className="text-2xl py-24">
           <h2 className="text-cyan-400 font-mono text-4xl mb-16">Work Experience</h2>
           
           <div className="grid grid-cols-12 gap-6 mx-auto max-w-5xl">
@@ -370,7 +451,7 @@ const projects = [
         </section>
 
         {/* Projects Section with fixed image container */}
-        <section id="projects" className="min-h-screen py-24">
+        <section id="projects" className="py-24">
           <h2 className="text-cyan-400 font-mono text-4xl mb-16">Projects</h2>
           {projects.map((project, index) => (
             <div key={index} className="mb-20">
@@ -419,7 +500,7 @@ const projects = [
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="py-24 flex flex-col items-center">
+        <section id="contact" className="pt-12 pb-24 flex flex-col items-center">
           <h2 className="text-cyan-400 font-mono text-4xl mb-16">Contact-Me</h2>
           <div className="max-w-2xl mx-auto text-center">
             <p className="text-white font-mono mb-12">
@@ -433,7 +514,7 @@ const projects = [
               </a>
             </div>
           </div>
-          <div className="mt-32 text-gray-400 text-xl font-mono">
+          <div className="mt-16 text-gray-400 text-xl font-mono">
             Built with inspo from  
             <a href="https://github.com/wumphlett/willhumphlett" className="text-cyan-400 mx-1 hover:text-white transition-colors duration-300"> Will Humphlett</a> &
             <a href="https://github.com/jmurrah/personal-portfolio" className="text-cyan-400 mx-1 hover:text-white transition-colors duration-300"> Jacob Murrah</a>
