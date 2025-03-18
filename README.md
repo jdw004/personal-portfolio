@@ -1,6 +1,6 @@
 # Portfolio Website
 
-A portfolio website built with **React** and **Tailwind CSS**. 
+A simple portfolio website to showcase my projects and experience.
 
 ## Technologies Used
 - **React**: A JavaScript library for building user interfaces.
